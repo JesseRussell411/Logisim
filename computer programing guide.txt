@@ -1,0 +1,76 @@
+PM A: (Controls)
+----------------------------
+0  if-goto(if (ALU Out=1b32 and goto!=0) goto else don't goto)
+1  RAM Wr
+2  RAM R
+3  RAM Rst(!!deletes all values in ram!!)
+4  Register A Wr
+5  Register B Wr
+
+6-9  ALU Fnctn (0)*
+
+10-11 RamMux Q (0)**
+
+12-15 ReadMux Q (0)***
+
+16-23 Ram RQ (0)
+
+24-31 Ram WrQ (0)
+
+
+*
+0  +
+1  -
+2  X
+3  /
+4  >
+5  =
+6  <
+7  !=
+8  >=
+9  <=
+10 AND
+11 OR
+12 XOR
+13 NAND
+14 NOR
+15 XNOR
+
+
+**
+0  ALU Out
+1  ALU Zero
+2  readMux Out
+3  constant
+
+***
+0  RAM Out
+1  Constant
+2-11 USER INPUT(0-9)
+12 0 32b
+13 1 32b
+14 2 32b
+15 10 32b
+
+PM B: (Output/expansion)
+----------------------------------------------------
+0-1 num output select Q*
+2  num output enable
+4  send readmux to Alu Fnctn
+3  Register Rst
+5  send ReadMux to Ram Wr Q
+6  send ReadMux to Ram R Q
+*
+0  RAM Out
+1  ReadMux Out
+2  ALU Zero
+3  ALU Out
+
+
+PM C: (Constant)
+----------------------------------------------------
+0-31 constant
+
+PM D: (Goto)
+----------------------------------------------------
+0-31 Goto(zero = don't goto)
